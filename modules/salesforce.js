@@ -56,8 +56,10 @@ let findProperties = (params) => {
         console.log('findProperties query: ' + q);
         org.query({query: q}, (err, resp) => {
             if (err) {
+                console.log('findProperties query fail: ' + err);
                 reject("An error as occurred");
             } else {
+                console.log('findProperties query success');
                 resolve(resp.records);
             }
         });
@@ -88,8 +90,10 @@ let findPriceChanges = () => {
         console.log('findPriceChanges query: ' + q);
         org.query({query: q}, (err, resp) => {
             if (err) {
+                console.log('findPriceChanges query fail: ' + err);
                 reject("An error as occurred");
             } else {
+                console.log('findProperties query success');
                 resolve(resp.records);
             }
         });
