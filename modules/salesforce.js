@@ -5,7 +5,8 @@ let nforce = require('nforce'),
     SF_CLIENT_ID = process.env.SF_CLIENT_ID,
     SF_CLIENT_SECRET = process.env.SF_CLIENT_SECRET,
     SF_USER_NAME = process.env.SF_USER_NAME,
-    SF_PASSWORD = process.env.SF_PASSWORD;
+    SF_PASSWORD = process.env.SF_PASSWORD,
+    SF_SECURITY_TOKEN = process.env.SF_SECURITY_TOKEN;
 
 let org = nforce.createConnection({
     clientId: SF_CLIENT_ID,
@@ -16,7 +17,7 @@ let org = nforce.createConnection({
 });
 
 let login = () => {
-    org.authenticate({username: SF_USER_NAME, password: SF_PASSWORD}, err => {
+    org.authenticate({username: SF_USER_NAME, password: SF_PASSWORD, securityToken: SF_SECURITY_TOKEN}, err => {
         if (err) {
             console.error("Authentication error");
             console.error(err);
