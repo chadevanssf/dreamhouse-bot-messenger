@@ -27,7 +27,7 @@ let match = text => {
         var match = text.match(new RegExp(utterances[i].utterance, 'i'));
         if (match) {
             var handler = utterances[i].handler;
-            console.log('match: ' + utterances[i]);
+            console.log('match: ' + utterances[i].utterance);
             return {handler, match};
         } else {
             console.log('no match');
