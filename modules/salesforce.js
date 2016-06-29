@@ -53,6 +53,7 @@ let findProperties = (params) => {
                 FROM property__c
                 ${where}
                 LIMIT 5`;
+        console.log('findProperties query: ' + q);
         org.query({query: q}, (err, resp) => {
             if (err) {
                 reject("An error as occurred");
@@ -84,6 +85,7 @@ let findPriceChanges = () => {
                 WHERE field = 'Price__c'
                 ORDER BY CreatedDate DESC
                 LIMIT 3`;
+        console.log('findPriceChanges query: ' + q);
         org.query({query: q}, (err, resp) => {
             if (err) {
                 reject("An error as occurred");
